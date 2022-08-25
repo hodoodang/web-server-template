@@ -1,0 +1,26 @@
+# idle
+.idea
+.vscode
+.cache
+
+# virtual environment
+venv
+.venv
+node_modules
+static
+
+# build
+build
+dist
+
+# data files
+data
+*.zip
+*.http
+
+# config files
+*.env
+.env*
+*.yml
+*.yaml
+*.ini
