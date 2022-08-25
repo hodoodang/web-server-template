@@ -1,7 +1,11 @@
 # idle
 .idea
 .vscode
+
+# cache
 .cache
+__pycache__
+.pytest_cache
 
 # virtual environment
 venv
