@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.middleware.errors import ServerErrorMiddleware
 
+from app.middleware import *
 from app.utils import init_logging
 from app.api import api_router
 
@@ -25,6 +26,12 @@ def create_app():
     # TODO: init DB
 
     # TODO: middleware initialize and add
+    # Request ID
+    application.middleware("http")(request_middleware)
+    # Require JSON
+    application.add_middleware(RequireJSON)
+    # Add Header X-Process-Time
+    application.add_middleware(TimeHeaderMiddleware)
     # Token Check
     # application.add_middleware(BaseHTTPMiddleware)
     # Allow CORS

@@ -1,5 +1,6 @@
 import time
 from fastapi import Request
+from fastapi.responses import PlainTextResponse
 from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
 from starlette.responses import Response
 
@@ -11,12 +12,6 @@ class TimeHeaderMiddleware(BaseHTTPMiddleware):
         process_time = time.time() - start_time
         res.headers['X-Process-Time'] = str(process_time)
         return res
-
-
-from fastapi import Request
-from fastapi.responses import PlainTextResponse, ORJSONResponse
-from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
-from starlette.responses import Response
 
 
 class RequireJSON(BaseHTTPMiddleware):
