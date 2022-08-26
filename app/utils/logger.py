@@ -78,6 +78,8 @@ def init_logging():
     2020-07-25 02:19:21.357 | INFO     | uvicorn.lifespan.on:startup:34 - Application startup complete.
 
     """
+    # Remove the default setting
+    logger.remove()
 
     # disable handlers for specific uvicorn loggers
     # to redirect their output to the default uvicorn logger
@@ -96,5 +98,9 @@ def init_logging():
 
     # set logs output, level and format
     logger.configure(
-        handlers=[{"sink": sys.stdout, "level": logging.DEBUG, "format": format_record}]
+        handlers=[
+            {"sink": sys.stderr, "level": logging.WARNING},
+            {"sink": sys.stdout, "level": logging.DEBUG, "format": format_record},
+            {"sink": "analyzer.log", "level": logging.DEBUG, "format": format_record}
+        ]
     )
