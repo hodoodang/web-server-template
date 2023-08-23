@@ -1,7 +1,7 @@
 # FastAPI Project
 
-- Template
-- Test
+- Template: app
+- Test: tests
 
 
 ```shell
